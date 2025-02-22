@@ -1,11 +1,10 @@
 // IMPORT PACKAGES
-// Here you should import the required packages for your Express app: `express` and `morgan`
-
+const express = requiere("express");
+const logger = requiere("morgan");
 
 
 // CREATE EXPRESS APP
-// Here you should create your Express app:
-
+const app = express();
 
 
 // MIDDLEWARE
@@ -22,4 +21,6 @@
 
 
 // START THE SERVER
-// Make your Express server listen on port 5005:
+const port = Number(5005);
+
+app.listen(port, () => console.info(`Application running ar port ${port}`));
