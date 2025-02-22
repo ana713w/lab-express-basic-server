@@ -1,6 +1,6 @@
 // IMPORT PACKAGES
-const express = requiere("express");
-const logger = requiere("morgan");
+const express = require("express");
+const logger = require("morgan");
 
 
 // CREATE EXPRESS APP
@@ -8,16 +8,15 @@ const app = express();
 
 
 // MIDDLEWARE
-// Here you should set up the required middleware:
-// - `express.static()` to serve static files from the `public` folder
-// - `express.json()` to parse incoming requests with JSON payloads
-// - `morgan` logger to log all incoming requests
+app.use(express.static("public"));
+app.use(express.json());
+app.use(logger("dev"));
 
 
 
 // ROUTES
-// Start defining your routes here:
-
+const routes = require("./config/routes.config");
+app.use("/", routes);
 
 
 // START THE SERVER
