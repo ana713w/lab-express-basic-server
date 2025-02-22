@@ -4,6 +4,10 @@ const router = express.Router();
 const projects = require("../data/projects.json");
 const articles = require("../data/articles.json");
 
+router.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "..", "views", "index.html"));
+})
+
 router.get("/blog", (req, res) => {
     res.sendFile(path.join(__dirname, "..", "views", "blog.html"));
 });
